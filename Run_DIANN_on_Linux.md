@@ -46,7 +46,7 @@ nano ~/.bash_profile
 
 ```bash
 PATH="/usr/share/diann-1.9.2:$PATH"
-export DIANN-dir="/usr/share/diann-1.9.2"
+export DIANN_dir="/usr/share/diann-1.9.2"
 ```
 
 ​	**Save the changes**:
@@ -71,7 +71,7 @@ In the following command, change `--dir` to the directory where `.mzML` files ar
 `--reanalyse`: enable MBR.
 
 ```bash
-bash run_diann.sh --dir ~/dir/to/your/mzML/  --lib $DIANN-dir/report-lib.predicted.speclib --threads 100 --verbose 3 --out ~/output/diann.tsv --qvalue 0.01 --matrices --out-lib ./report-lib.parquet --gen-spec-lib --predictor --xic --fasta $DIANN-dir/uniprotkb_proteome_UP000005640_2024_11_22.fasta --fasta-search --min-fr-mz 200 --max-fr-mz 2000 --met-excision --min-pep-len 6 --max-pep-len 40 --min-pr-mz 380 --max-pr-mz 980 --min-pr-charge 2 --max-pr-charge 6 --cut K*,R* --missed-cleavages 1 --unimod4 --var-mods 2 --var-mod UniMod:35,15.994915,M --mass-acc 20 --mass-acc-ms1 15 --double-search --relaxed-prot-inf --rt-profiling --pg-level 1 -reanalyse
+bash run_diann.sh --dir ~/dir/to/your/mzML/  --lib $DIANN_dir/report-lib.predicted.speclib --threads 100 --verbose 3 --out ~/output/diann.tsv --qvalue 0.01 --matrices --out-lib ./report-lib.parquet --gen-spec-lib --predictor --xic --fasta $DIANN_dir/uniprotkb_proteome_UP000005640_2024_11_22.fasta --fasta-search --min-fr-mz 200 --max-fr-mz 2000 --met-excision --min-pep-len 6 --max-pep-len 40 --min-pr-mz 380 --max-pr-mz 980 --min-pr-charge 2 --max-pr-charge 6 --cut K*,R* --missed-cleavages 1 --unimod4 --var-mods 2 --var-mod UniMod:35,15.994915,M --mass-acc 20 --mass-acc-ms1 15 --double-search --relaxed-prot-inf --rt-profiling --pg-level 1 -reanalyse
 
 ```
 
