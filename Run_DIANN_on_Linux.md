@@ -25,7 +25,12 @@ In the following command, change `/home/user/raw:/data_input` to your .raw file 
 
 ```bash
 cd $HOME/MS_data
-ls *.raw | parallel -j 120 'docker run -i -t -v /home/user/raw:/data_input quay.io/biocontainers/thermorawfileparser:1.4.5--h05cac1d_1 ThermoRawFileParser.sh -i /data_input/{1}'
+
+ls *.raw | parallel -j 120 '
+echo "Processing {1} started at $(date)"
+docker run -i -t -v /home/user/raw:/data_input quay.io/biocontainers/thermorawfileparser:1.4.5--h05cac1d_1 ThermoRawFileParser.sh -i /data_input/{1}
+echo "Processing {1} finished at $(date)"
+'
 ```
 
 
