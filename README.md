@@ -21,7 +21,7 @@ Python version relies on student t-test and use Benjamini-Hochberg to correct fo
             - If yes, perform peptide-level statistical significance testing using a **t-test** between treated and control groups for the protein's peptides.
             - If the **median p-value < 0.05** or (all p-values are `NaN` but foldchange contains valid value, meaning n=1 t-test failed), impute treated values using a **uniform distribution** centered around the 1st percentile of the treated group.
         - **Case 2**: Some treated group values are available:
-            - If peptide count > 5, impute missing treated values using the **mean** of the treated group for the protein and a **normalized standard deviation (CV)** derived from the treated group.
+            - If peptide count > 3, impute missing treated values using the **mean** of the treated group for the protein and a **normalized standard deviation (CV)** derived from the treated group.
 
 
 
