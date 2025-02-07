@@ -80,7 +80,10 @@ In the following command, change `--dir` to the directory where `.mzML` files ar
 `--reanalyse`: enable MBR.
 
 ```bash
-bash run_diann.sh --dir ~/dir/to/your/mzML/  --lib $DIANN_dir/report-lib.predicted.speclib --threads 100 --verbose 3 --out ~/output/diann.tsv --qvalue 0.01 --matrices --out-lib ./report-lib.parquet --gen-spec-lib --predictor --xic --fasta $DIANN_dir/uniprotkb_proteome_UP000005640_2024_11_22.fasta --fasta-search --min-fr-mz 200 --max-fr-mz 2000 --met-excision --min-pep-len 6 --max-pep-len 40 --min-pr-mz 380 --max-pr-mz 980 --min-pr-charge 2 --max-pr-charge 6 --cut K*,R* --missed-cleavages 1 --unimod4 --var-mods 2 --var-mod UniMod:35,15.994915,M --mass-acc 20 --mass-acc-ms1 15 --double-search --relaxed-prot-inf --rt-profiling --pg-level 1 -reanalyse
-
+# DL-based Spectra Prediction from Fasta (in silico digestion)
+bash run_diann.sh  --threads 100 --verbose 3  --qvalue 0.01 --matrices --out-lib ./report-lib.parquet --gen-spec-lib --predictor --xic --fasta $DIANN_dir/uniprotkb_proteome_UP000005640_Homo_sapiens_reviewed_2025_01_07.fasta --fasta-search --min-fr-mz 200 --max-fr-mz 2000 --met-excision --min-pep-len 6 --max-pep-len 40 --min-pr-mz 380 --max-pr-mz 980 --min-pr-charge 2 --max-pr-charge 6 --cut K*,R* --missed-cleavages 1 --unimod4 --var-mods 2 --var-mod UniMod:35,15.994915,M --mass-acc 20 --mass-acc-ms1 15 --double-search --relaxed-prot-inf --rt-profiling --pg-level 1 --reanalyse --dir ~/20250206_Jurkat_YDS/mzml/ --out ~/20250206_Jurkat_YDS/mzml/diann.tsv
 ```
-
+```bash
+# use predicted lib, no gen-spec-lib and predictor
+bash run_diann.sh --threads 100 --verbose 3 --qvalue 0.01 --matrices --out-lib ./report-lib.parquet --xic --fasta $DIANN_dir/uniprotkb_proteome_UP000005640_Homo_sapiens_reviewed_2025_01_07.fasta --lib $DIANN_dir/report-lib.predicted.speclib --min-fr-mz 200 --max-fr-mz 2000 --met-excision --min-pep-len 6 --max-pep-len 40 --min-pr-mz 380 --max-pr-mz 980 --min-pr-charge 2 --max-pr-charge 6 --cut K*,R* --missed-cleavages 1 --unimod4 --var-mods 2 --var-mod UniMod:35,15.994915,M --mass-acc 20 --mass-acc-ms1 15 --double-search --relaxed-prot-inf --rt-profiling --pg-level 1 --reanalyse --dir ~/20250206_Jurkat_YDS/mzml/ --out ~/20250206_Jurkat_YDS/mzml/diann.tsv
+```
