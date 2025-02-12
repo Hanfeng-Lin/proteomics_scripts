@@ -37,6 +37,23 @@ echo "Processing {1} finished in ${elapsed_minutes} minutes"
 '
 ```
 
+Alternatively, use local binary file instead of docker:
+
+```bash
+cd $HOME/MS_data
+
+ls *.raw | parallel -j 12 '
+start_time=$(date +%s)
+echo "Processing {1} started"
+mono /usr/share/ThermoRawFileParser1.4.5/ThermoRawFileParser.exe -i=./{1} -f=1
+end_time=$(date +%s)
+elapsed_seconds=$((end_time - start_time))
+elapsed_minutes=$(echo "scale=2; $elapsed_seconds / 60" | bc)
+echo "Processing {1} finished in ${elapsed_minutes} minutes"
+'
+
+```
+
 
 
 ### Run DIA-NN 1.9.2 on Linux
