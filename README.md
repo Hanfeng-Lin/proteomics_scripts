@@ -3,7 +3,7 @@ Data analysis for global proteomics DIA data
 
 Two languages provided, python (.ipynb) and R (.R)
 
-Python version relies on student t-test and use Benjamini-Hochberg to correct for multiple t-test FDR, or you can choose enable limma via Python-R hybrid interface. Imputation is optional but optimized for degrader-related experiment.
+Python version relies on student t-test and use Benjamini-Hochberg to correct for multiple t-test FDR, or you can choose to enable limma via Python-R hybrid interface. Imputation is optional but optimized for degrader-related experiment.
 
 ### Key Imputation Logic Steps
 
