@@ -92,7 +92,7 @@ source ~/.bash_profile
 
 #### Global proteomics DIANN command example
 
-In the following command, change `--dir` to the directory where `.mzML` files are located in, also `-out` to the output directory.
+Before running the following command, `cd` to your current `.mzML` files location. The outputs will be in the same directory.
 
 `--fasta`: Change if you are searching something other than human proteome. Meanwhile, also change `--lib` with a new name for your proteome
 
@@ -100,14 +100,14 @@ In the following command, change `--dir` to the directory where `.mzML` files ar
 
 ```bash
 # DL-based Spectra Prediction from Fasta (in silico digestion)
-bash run_diann.sh  --threads 100 --verbose 3  --qvalue 0.01 --matrices --out-lib ./report-lib.parquet --gen-spec-lib --predictor --xic --fasta $DIANN_dir/uniprotkb_proteome_UP000005640_Homo_sapiens_reviewed_2025_01_07.fasta --fasta-search --min-fr-mz 200 --max-fr-mz 2000 --met-excision --min-pep-len 6 --max-pep-len 40 --min-pr-mz 380 --max-pr-mz 980 --min-pr-charge 2 --max-pr-charge 6 --cut K*,R* --missed-cleavages 1 --unimod4 --var-mods 2 --var-mod UniMod:35,15.994915,M --mass-acc 20 --mass-acc-ms1 15 --double-search --relaxed-prot-inf --rt-profiling --pg-level 1 --reanalyse --dir ~/20250206_Jurkat_YDS/mzml/ --out ~/20250206_Jurkat_YDS/mzml/diann.tsv
+bash run_diann.sh  --threads 100 --verbose 3  --qvalue 0.01 --matrices --out-lib ./report-lib.parquet --gen-spec-lib --predictor --xic --fasta $DIANN_dir/uniprotkb_proteome_UP000005640_Homo_sapiens_reviewed_2025_01_07.fasta --fasta-search --min-fr-mz 200 --max-fr-mz 2000 --met-excision --min-pep-len 6 --max-pep-len 40 --min-pr-mz 380 --max-pr-mz 980 --min-pr-charge 2 --max-pr-charge 6 --cut K*,R* --missed-cleavages 1 --unimod4 --var-mods 2 --var-mod UniMod:35,15.994915,M --mass-acc 20 --mass-acc-ms1 15 --double-search --relaxed-prot-inf --rt-profiling --pg-level 1 --reanalyse --dir ./ --out ./
 
 
 ```
 
 ```bash
 # use predicted lib, no gen-spec-lib and predictor
-bash run_diann.sh --threads 100 --verbose 3 --qvalue 0.01 --matrices --out-lib ./report-lib.parquet --xic --fasta $DIANN_dir/uniprotkb_proteome_UP000005640_Homo_sapiens_reviewed_2025_01_07.fasta --lib $DIANN_dir/report-lib.predicted.speclib --min-fr-mz 200 --max-fr-mz 2000 --met-excision --min-pep-len 6 --max-pep-len 40 --min-pr-mz 380 --max-pr-mz 980 --min-pr-charge 2 --max-pr-charge 6 --cut K*,R* --missed-cleavages 1 --unimod4 --var-mods 2 --var-mod UniMod:35,15.994915,M --mass-acc 20 --mass-acc-ms1 15 --double-search --relaxed-prot-inf --rt-profiling --pg-level 1 --reanalyse --dir ~/20250206_Jurkat_YDS/mzml/ --out ~/20250206_Jurkat_YDS/mzml/diann.tsv
+bash run_diann.sh --threads 100 --verbose 3 --qvalue 0.01 --matrices --out-lib ./report-lib.parquet --xic --fasta $DIANN_dir/uniprotkb_proteome_UP000005640_Homo_sapiens_reviewed_2025_01_07.fasta --lib $DIANN_dir/report-lib.predicted.speclib --min-fr-mz 200 --max-fr-mz 2000 --met-excision --min-pep-len 6 --max-pep-len 40 --min-pr-mz 380 --max-pr-mz 980 --min-pr-charge 2 --max-pr-charge 6 --cut K*,R* --missed-cleavages 1 --unimod4 --var-mods 2 --var-mod UniMod:35,15.994915,M --mass-acc 20 --mass-acc-ms1 15 --double-search --relaxed-prot-inf --rt-profiling --pg-level 1 --reanalyse --dir ./ --out ./
 
 ```
 
@@ -190,4 +190,5 @@ process_wide_format(input_filename = "NGT20-12_pr_noseq.FragpipeAnalyst_Imputed_
 
 # This leads to the imputation ~1.8 fold log2FC using Perseus-type imputation. No-go.
 ```
+
 
