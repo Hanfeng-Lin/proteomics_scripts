@@ -107,7 +107,8 @@ bash run_diann.sh  --threads 100 --verbose 3  --qvalue 0.01 --matrices --out-lib
 
 ```bash
 # use predicted lib, no gen-spec-lib and predictor
-bash run_diann.sh --threads 100 --verbose 3 --qvalue 0.01 --matrices --out-lib ./report-lib.parquet --xic --fasta $DIANN_dir/uniprotkb_proteome_UP000005640_Homo_sapiens_reviewed_2025_01_07.fasta --lib $DIANN_dir/report-lib.predicted.speclib --min-fr-mz 200 --max-fr-mz 2000 --met-excision --min-pep-len 6 --max-pep-len 40 --min-pr-mz 380 --max-pr-mz 980 --min-pr-charge 2 --max-pr-charge 6 --cut K*,R* --missed-cleavages 1 --unimod4 --var-mods 2 --var-mod UniMod:35,15.994915,M --mass-acc 20 --mass-acc-ms1 15 --double-search --relaxed-prot-inf --rt-profiling --pg-level 1 --reanalyse --dir ./ --out ./diann.tsv
+# --use-quant use existing .quant files, if available
+bash run_diann.sh --threads 100 --verbose 3 --qvalue 0.01 --matrices --out-lib ./report-lib.parquet --xic --fasta $DIANN_dir/uniprotkb_proteome_UP000005640_Homo_sapiens_reviewed_2025_01_07.fasta --lib $DIANN_dir/report-lib.predicted.speclib --min-fr-mz 200 --max-fr-mz 2000 --met-excision --min-pep-len 6 --max-pep-len 40 --min-pr-mz 380 --max-pr-mz 980 --min-pr-charge 2 --max-pr-charge 6 --cut K*,R* --missed-cleavages 1 --unimod4 --var-mods 2 --var-mod UniMod:35,15.994915,M --mass-acc 20 --mass-acc-ms1 15 --double-search --relaxed-prot-inf --rt-profiling --pg-level 1 --reanalyse --use-quant --dir ./ --out ./diann.tsv
 
 ```
 
